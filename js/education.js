@@ -1,6 +1,6 @@
 /*
  * EDUCATION SECTION JS
- * GITAM University with detailed modal, SGPA chart
+ * GITAM University with detailed modal, SGPA chart, Technical Skills & Coursework
  */
 
 class EducationSection {
@@ -21,46 +21,69 @@ class EducationSection {
             graduation: 'July 2025',
             icon: '🎓',
             
-            overview: `Completed Bachelor of Technology in Computer Science with specialization in Cybersecurity from GITAM University, Hyderabad. Achieved First Class with Distinction with a CGPA of <strong>8.82</strong>, ranking <strong>4th overall in the batch</strong>. Conducted extensive research in network security, machine learning applications in cybersecurity, and post-quantum cryptography.`,
+            overview: `Completed Bachelor of Technology in Computer Science with specialization in Cybersecurity from GITAM University, Hyderabad. Achieved <strong>First Class with Distinction</strong> with a CGPA of <strong>8.82/10</strong>, ranking <strong>4th overall in the batch</strong>. Final semesters achieved <strong>9.47 and 9.50 SGPA</strong>—first in batch for both terms. Conducted extensive research in network security, adversarial ML, and post-quantum cryptography.`,
             
-            journey: `Academic performance showed steady growth throughout the program. Semester 4 presented challenges with an 8.00 SGPA during a period of increased extracurricular commitments. Through improved time management and focused study approaches, achieved systematic recovery with <strong>9.47 and 9.50 SGPA</strong> in final semesters (Semesters 7 and 8)—securing <strong>first position in the batch</strong> for both terms.`,
+            journey: `Academic performance showed consistent growth throughout the program. After a challenging fourth semester (8.00 SGPA), implemented focused study approaches and hands-on learning in specialized coursework. This systematic effort resulted in steady improvement: 8.64, then 8.86, culminating in <strong>9.47 and 9.50 SGPA</strong> in the final semesters—securing <strong>first position in batch</strong> for both terms.`,
             
             sgpaData: {
                 labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6', 'Sem 7', 'Sem 8'],
                 data: [9.28, 8.75, 8.68, 8.00, 8.64, 8.86, 9.47, 9.50]
             },
             
-            coursework: [
-                'Network Security',
-                'Cryptography',
-                'Digital Forensics',
-                'Machine Learning',
-                'Data Structures',
-                'Computer Networks',
-                'Operating Systems',
-                'Database Systems',
-                'Web Security',
-                'Cloud Computing',
-                'Ethical Hacking',
-                'Information Security'
+            // Technical Skills with proficiency levels
+            technicalSkills: [
+                { name: 'Python', level: 90, category: 'Programming' },
+                { name: 'Java', level: 85, category: 'Programming' },
+                { name: 'C/C++', level: 75, category: 'Programming' },
+                { name: 'SQL', level: 80, category: 'Programming' },
+                { name: 'XGBoost/scikit-learn', level: 85, category: 'ML/AI' },
+                { name: 'PyTorch', level: 70, category: 'ML/AI' },
+                { name: 'Wireshark', level: 88, category: 'Security' },
+                { name: 'Palo Alto/PAN-OS', level: 80, category: 'Security' },
+                { name: 'NS-3 Simulation', level: 85, category: 'Security' },
+                { name: 'Linux/Docker', level: 82, category: 'Tools' },
+                { name: 'Git/GitHub', level: 88, category: 'Tools' },
+                { name: 'liboqs (PQC)', level: 75, category: 'Crypto' }
             ],
+            
+            // Key Coursework organized by category
+            coursework: {
+                'Security & Cryptography': [
+                    { name: 'Cryptography and Network Security', grade: 'O' },
+                    { name: 'Digital Forensics', grade: 'O' },
+                    { name: 'Network Security', grade: 'A+' },
+                    { name: 'Ethical Hacking', grade: 'A+' }
+                ],
+                'Computer Science Core': [
+                    { name: 'Data Structures', grade: 'A+' },
+                    { name: 'Design and Analysis of Algorithms', grade: 'O' },
+                    { name: 'Computer Networks', grade: 'A' },
+                    { name: 'Operating Systems', grade: 'A+' }
+                ],
+                'Mathematics': [
+                    { name: 'Single Variable Calculus', grade: 'A+' },
+                    { name: 'Several Variable Calculus', grade: 'A+' },
+                    { name: 'Discrete Mathematics', grade: 'A' },
+                    { name: 'Linear Algebra', grade: 'B+' },
+                    { name: 'Number Theory', grade: 'A' },
+                    { name: 'Graph Theory', grade: 'O' }
+                ],
+                'Data & AI': [
+                    { name: 'Database Management Systems', grade: 'A' },
+                    { name: 'Big Data Analytics', grade: 'A+' },
+                    { name: 'Artificial Intelligence Applications', grade: 'O' },
+                    { name: 'Programming with Python', grade: 'A+' }
+                ]
+            },
             
             achievements: [
                 'First Class with Distinction (CGPA 8.82/10)',
                 'Ranked 4th overall in B.Tech Cyber Security batch',
-                'Semester 7 and 8 SGPA: 9.47 and 9.50 (First in batch for both semesters)',
-                '3 research papers submitted to IEEE TIFS and Elsevier Ad Hoc Networks',
-                'Teaching Assistant for Digital Forensics',
-                'Department Student Assistant leadership role',
-                'Founded Project SAHAYAM reaching 320+ community members'
-            ],
-            
-            activities: [
-                'Research under Dr. Arshad Ahmad Khan Mohammad',
-                'Research under Dr. C. Atheeq',
-                'Led cyber safety awareness drives',
-                'Organized monthly security seminars',
-                'Improved department lab documentation'
+                'Semester 7 & 8 SGPA: 9.47 and 9.50 (First in batch)',
+                '3 research papers submitted to IEEE TIFS and Elsevier',
+                'Teaching Assistant for Computer Networks',
+                'Department Student Assistant (18 months)',
+                'Founded Project SAHAYAM (320+ participants)'
             ]
         };
         
@@ -90,9 +113,10 @@ class EducationSection {
         this.overlay?.classList.add('active');
         document.body.style.overflow = 'hidden';
         
-        // Initialize chart after modal opens
+        // Initialize charts and animations after modal opens
         setTimeout(() => {
             this.initChart();
+            this.animateSkillBars();
         }, 400);
     }
     
@@ -152,6 +176,10 @@ class EducationSection {
                         <div class="education-modal-gpa-value">${data.cgpa}</div>
                         <div class="education-modal-gpa-label">CGPA / 10</div>
                     </div>
+                    <div class="education-modal-gpa-item">
+                        <div class="education-modal-gpa-value">4th</div>
+                        <div class="education-modal-gpa-label">Batch Rank</div>
+                    </div>
                 </div>
             </div>
         `;
@@ -159,29 +187,14 @@ class EducationSection {
         // Rebind close
         header.querySelector('.education-modal-close').addEventListener('click', () => this.closeModal());
         
-        // Render coursework
-        const courseworkHTML = data.coursework.map(c => `
-            <div class="education-course">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
-                ${c}
-            </div>
-        `).join('');
+        // Render Technical Skills with animated bars
+        const skillsHTML = this.renderSkillBars(data.technicalSkills);
+        
+        // Render Coursework by category
+        const courseworkHTML = this.renderCoursework(data.coursework);
         
         // Render achievements
         const achievementsHTML = data.achievements.map(a => `
-            <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                ${a}
-            </li>
-        `).join('');
-        
-        // Render activities
-        const activitiesHTML = data.activities.map(a => `
             <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="20 6 9 17 4 12"></polyline>
@@ -208,7 +221,7 @@ class EducationSection {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                     </svg>
-                    Academic Journey
+                    Academic Progress
                 </h4>
                 <p class="education-modal-text">${data.journey}</p>
                 
@@ -220,12 +233,26 @@ class EducationSection {
             <div class="education-modal-section">
                 <h4 class="education-modal-section-title">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    Technical Skills
+                </h4>
+                <div class="education-skills-container">
+                    ${skillsHTML}
+                </div>
+            </div>
+            
+            <div class="education-modal-section">
+                <h4 class="education-modal-section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
                     Key Coursework
                 </h4>
-                <div class="education-coursework">${courseworkHTML}</div>
+                <div class="education-coursework-grid">
+                    ${courseworkHTML}
+                </div>
             </div>
             
             <div class="education-modal-section">
@@ -238,21 +265,83 @@ class EducationSection {
                 </h4>
                 <ul class="education-modal-achievements">${achievementsHTML}</ul>
             </div>
-            
-            <div class="education-modal-section">
-                <h4 class="education-modal-section-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                    Research & Activities
-                </h4>
-                <ul class="education-modal-achievements">${activitiesHTML}</ul>
-            </div>
-            
         `;
+    }
+    
+    renderSkillBars(skills) {
+        // Group skills by category
+        const categories = {};
+        skills.forEach(skill => {
+            if (!categories[skill.category]) {
+                categories[skill.category] = [];
+            }
+            categories[skill.category].push(skill);
+        });
+        
+        let html = '';
+        for (const [category, categorySkills] of Object.entries(categories)) {
+            html += `<div class="skill-category">
+                <h5 class="skill-category-title">${category}</h5>
+                <div class="skill-bars">`;
+            
+            categorySkills.forEach(skill => {
+                html += `
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <span class="skill-name">${skill.name}</span>
+                            <span class="skill-level">${skill.level}%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-level="${skill.level}" style="width: 0%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += `</div></div>`;
+        }
+        
+        return html;
+    }
+    
+    renderCoursework(coursework) {
+        let html = '';
+        
+        for (const [category, courses] of Object.entries(coursework)) {
+            html += `
+                <div class="coursework-category">
+                    <h5 class="coursework-category-title">${category}</h5>
+                    <div class="coursework-list">
+            `;
+            
+            courses.forEach(course => {
+                const gradeClass = course.grade === 'O' ? 'grade-o' : 
+                                   course.grade === 'A+' ? 'grade-aplus' : 
+                                   course.grade === 'A' ? 'grade-a' : 'grade-b';
+                html += `
+                    <div class="coursework-item">
+                        <span class="course-name">${course.name}</span>
+                        <span class="course-grade ${gradeClass}">${course.grade}</span>
+                    </div>
+                `;
+            });
+            
+            html += `</div></div>`;
+        }
+        
+        return html;
+    }
+    
+    animateSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-bar-fill');
+        
+        skillBars.forEach((bar, index) => {
+            const level = bar.dataset.level;
+            setTimeout(() => {
+                bar.style.transition = 'width 1s ease-out';
+                bar.style.width = `${level}%`;
+            }, index * 80); // Stagger animation
+        });
     }
     
     initChart() {
@@ -274,15 +363,17 @@ class EducationSection {
                     label: 'SGPA',
                     data: data.data,
                     borderColor: 'rgba(251, 191, 36, 1)',
-                    backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                    backgroundColor: 'rgba(251, 191, 36, 0.15)',
                     borderWidth: 3,
                     fill: true,
                     tension: 0.4,
-                    pointBackgroundColor: 'rgba(251, 191, 36, 1)',
+                    pointBackgroundColor: data.data.map((val, i) => 
+                        i >= 6 ? 'rgba(16, 185, 129, 1)' : 'rgba(251, 191, 36, 1)'
+                    ),
                     pointBorderColor: '#fff',
                     pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8
+                    pointRadius: 7,
+                    pointHoverRadius: 10
                 }]
             },
             options: {
@@ -294,8 +385,8 @@ class EducationSection {
                         display: true,
                         text: 'Semester-wise SGPA Progress',
                         color: '#f8fafc',
-                        font: { size: 14, weight: '600' },
-                        padding: { bottom: 20 }
+                        font: { size: 15, weight: '600' },
+                        padding: { bottom: 25 }
                     },
                     tooltip: {
                         backgroundColor: 'rgba(18, 18, 26, 0.95)',
@@ -303,25 +394,30 @@ class EducationSection {
                         bodyColor: '#f8fafc',
                         borderColor: 'rgba(251, 191, 36, 0.3)',
                         borderWidth: 1,
-                        padding: 12,
+                        padding: 14,
                         displayColors: false,
                         callbacks: {
-                            label: (context) => `SGPA: ${context.parsed.y.toFixed(2)}`
+                            label: (context) => {
+                                const sgpa = context.parsed.y.toFixed(2);
+                                const notes = context.dataIndex >= 6 ? ' (First in Batch)' : '';
+                                return `SGPA: ${sgpa}${notes}`;
+                            }
                         }
                     }
                 },
                 scales: {
                     x: {
                         grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                        ticks: { color: '#94a3b8' }
+                        ticks: { color: '#94a3b8', font: { size: 12 } }
                     },
                     y: {
-                        min: 7,
+                        min: 7.5,
                         max: 10,
                         grid: { color: 'rgba(255, 255, 255, 0.05)' },
                         ticks: { 
                             color: '#94a3b8',
-                            stepSize: 0.5
+                            stepSize: 0.5,
+                            font: { size: 12 }
                         }
                     }
                 },
