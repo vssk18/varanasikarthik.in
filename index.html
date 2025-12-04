@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sai Srinivasa Karthik Varanasi - Cybersecurity Researcher specializing in ML-based intrusion detection, adversarial machine learning, and post-quantum cryptography.">
+    <meta name="keywords" content="cybersecurity, machine learning, MANET, intrusion detection, post-quantum cryptography, research">
+    <meta name="author" content="Sai Srinivasa Karthik Varanasi">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Karthik Varanasi | Cybersecurity Researcher">
+    <meta property="og:description" content="Exploring the intersection of machine learning and network security">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://varanasikarthik.in">
+    
+    <title>Karthik Varanasi | Cybersecurity Researcher</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/education.css">
+    
+    <style>
+        /* Favicon placeholder */
+        link[rel="icon"] { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-logo">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <span class="loader-mark">KV</span>
+        </div>
+        <p class="loader-text">Loading Experience</p>
+    </div>
+    
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="noise"></div>
+        <div class="ambient-orb ambient-orb-1"></div>
+        <div class="ambient-orb ambient-orb-2"></div>
+        <div class="ambient-orb ambient-orb-3"></div>
+        <div class="grid-pattern"></div>
+    </div>
+    
+    <!-- Gold Particles Canvas -->
+    <canvas id="gold-particles-canvas"></canvas>
+    
+    <!-- Spotlight -->
+    <div class="spotlight"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    
+    <!-- Water Ripple Container -->
+    <div class="ripple-container"></div>
+    
+    <!-- QR Overlay (for profile QR) -->
+    <div class="qr-overlay"></div>
+    <div class="qr-expanded"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">
+            <span class="nav-mark">KV</span>
+            <span class="nav-name">Karthik Varanasi</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#work" class="nav-link">Work</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content reveal">
+                <div class="hero-badge">
+                    <span>Open to MS Fall 2026</span>
+                </div>
+                <h1 class="hero-title">
+                    Securing Tomorrow's<br>
+                    <span class="gradient-text">Digital Frontiers</span>
+                </h1>
+                <p class="hero-desc">
+                    Cybersecurity researcher exploring the intersection of machine learning and network security. 
+                    Building practical solutions for real-world threats through rigorous academic research.
+                </p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn-magnetic btn-primary ripple-btn">
+                        <span>View Research</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="mailto:karthik@example.com" class="btn-magnetic btn-secondary ripple-btn">
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/vssk18" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/karthikvaranasi" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:karthik@varanasikarthik.in" class="social-link" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual reveal-scale">
+                <div class="profile-container">
+                    <!-- Floating Orbs -->
+                    <div class="floating-orbs-container">
+                        <!-- Projects Orb -->
+                        <a href="#work" class="floating-orb" data-section="#work" data-tab="projects">
+                            <span class="orb-icon">💻</span>
+                            <span class="orb-value">4+</span>
+                            <span class="orb-label">Projects</span>
+                        </a>
+                        
+                        <!-- Research Orb - switches to research tab -->
+                        <a href="#work" class="floating-orb" data-section="#work" data-tab="research">
+                            <span class="orb-icon">🔬</span>
+                            <span class="orb-value">3</span>
+                            <span class="orb-label">Research</span>
+                        </a>
+                        
+                        <!-- CGPA Orb -->
+                        <a href="#education" class="floating-orb" data-section="#education">
+                            <span class="orb-icon">🎓</span>
+                            <span class="orb-value">8.82</span>
+                            <span class="orb-label">CGPA</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Profile Card -->
+                    <div class="profile-card">
+                        <div class="profile-image-container">
+                            <div class="profile-ring"></div>
+                            <div class="profile-ring"></div>
+                            <img src="assets/profile.png" alt="Karthik Varanasi" class="profile-image">
+                        </div>
+                        <div class="profile-info">
+                            <span class="profile-name">Sai Srinivasa Karthik Varanasi</span>
+                            <span class="profile-role">Cybersecurity Researcher</span>
+                        </div>
+                        
+                        <!-- Profile QR - Links to varanasikarthik.in -->
+                        <div class="profile-qr">
+                            <div class="qr-mini" data-url="https://varanasikarthik.in" title="Scan to visit portfolio">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://varanasikarthik.in" alt="Portfolio QR">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         ABOUT SECTION - What I Do
+    ============================================ -->
+    <section class="section" id="about">
+        <div class="section-header reveal">
+            <span class="section-tag">What I Do</span>
+            <h2 class="section-title">
+                Expertise in <span class="gradient-text">Security Research</span>
+            </h2>
+            <p class="section-desc">
+                From academic research to practical implementation, I work across the full spectrum of cybersecurity challenges.
+            </p>
+        </div>
+        
+        <div class="about-grid stagger-children">
+            <!-- Research Card -->
+            <div class="about-card" data-card="0">
+                <div class="about-card-glow"></div>
+                <span class="about-card-badge">Security Research</span>
+                <h3 class="about-card-title">Cybersecurity Research</h3>
+                <p class="about-card-desc">
+                    Conducting rigorous academic research in ML-based intrusion detection, adversarial machine learning, and post-quantum cryptography.
+                </p>
+                <ul class="about-card-highlights">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        3 papers under review at top venues
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        94.7% accuracy in MANET IDS
+                    </li>
+                </ul>
+                <div class="about-card-cta">
+                    <span>View Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Engineering Card -->
+            <div class="about-card" data-card="1">
+                <div class="about-card-glow"></div>
+                <span class="about-card-badge">Applied Security</span>
+                <h3 class="about-card-title">Security Engineering</h3>
+                <p class="about-card-desc">
+                    Building practical security solutions from network simulation to cryptographic implementations on constrained devices.
+                </p>
+                <ul class="about-card-highlights">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        X.509 certificate debugging at Hitachi
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        NS-3 network simulations
+                    </li>
+                </ul>
+                <div class="about-card-cta">
+                    <span>View Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Education Card -->
+            <div class="about-card" data-card="2">
+                <div class="about-card-glow"></div>
+                <span class="about-card-badge">Community Impact</span>
+                <h3 class="about-card-title">Security Education</h3>
+                <p class="about-card-desc">
+                    Making cybersecurity accessible through bilingual community education and academic leadership roles.
+                </p>
+                <ul class="about-card-highlights">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Founded Project SAHAYAM
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        TA for Computer Networks
+                    </li>
+                </ul>
+                <div class="about-card-cta">
+                    <span>View Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Modal -->
+    <div class="about-modal-overlay">
+        <div class="about-modal">
+            <div class="about-modal-header">
+                <button class="about-modal-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <span class="about-modal-badge">Loading...</span>
+                <h2 class="about-modal-title">Loading...</h2>
+            </div>
+            <div class="about-modal-body">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================
+         WORK SECTION - Projects & Research
+    ============================================ -->
+    <section class="section" id="work">
+        <div class="section-header reveal">
+            <span class="section-tag">My Work</span>
+            <h2 class="section-title">
+                Research & <span class="gradient-text">Projects</span>
+            </h2>
+            <p class="section-desc">
+                Academic research publications and practical security projects demonstrating expertise in cybersecurity.
+            </p>
+        </div>
+        
+        <div class="work-container">
+            <!-- Tabs -->
+            <div class="work-tabs reveal">
+                <button class="work-tab active" data-tab="research">
+                    <span>🔬 Research <span class="tab-count">3</span></span>
+                </button>
+                <button class="work-tab" data-tab="projects">
+                    <span>💻 Projects <span class="tab-count">5</span></span>
+                </button>
+            </div>
+            
+            <!-- Panels -->
+            <div class="work-panels">
+                <!-- Research Panel -->
+                <div class="work-panel active" data-panel="research">
+                    <div class="work-grid stagger-children">
+                        <!-- MANET IDS -->
+                        <div class="work-card" data-id="manet-ids" data-type="research">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">🔐</div>
+                                <span class="work-card-type research">Under Review</span>
+                            </div>
+                            <h3 class="work-card-title">MANET Intrusion Detection System</h3>
+                            <p class="work-card-subtitle">IEEE TIFS Submission</p>
+                            <p class="work-card-desc">
+                                ML-based IDS for Mobile Ad-Hoc Networks using XGBoost. Achieved 94.7% accuracy after correcting data leakage issues.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">XGBoost</span>
+                                <span class="work-card-tag">NS-3</span>
+                                <span class="work-card-tag">Python</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                                    94.7%
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Adversarial ML -->
+                        <div class="work-card" data-id="adversarial-ml" data-type="research">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">⚔️</div>
+                                <span class="work-card-type research">Under Review</span>
+                            </div>
+                            <h3 class="work-card-title">Adversarial ML Evaluation</h3>
+                            <p class="work-card-subtitle">Elsevier Ad Hoc Networks</p>
+                            <p class="work-card-desc">
+                                Constraint-aware analysis of adversarial attacks on network IDS. Found 73-89% of attacks violate network constraints.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">PyTorch</span>
+                                <span class="work-card-tag">ART</span>
+                                <span class="work-card-tag">ML Security</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                                    73-89%
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- PQC IoT -->
+                        <div class="work-card" data-id="pqc-iot" data-type="research">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">🔮</div>
+                                <span class="work-card-type research">Under Review</span>
+                            </div>
+                            <h3 class="work-card-title">Post-Quantum Cryptography for IoT</h3>
+                            <p class="work-card-subtitle">Elsevier Ad Hoc Networks</p>
+                            <p class="work-card-desc">
+                                Performance analysis of NIST PQC algorithms on constrained devices. Identified NTRU-Prime-hrss701 as optimal.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">PQC</span>
+                                <span class="work-card-tag">IoT</span>
+                                <span class="work-card-tag">liboqs</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                                    4,608 configs
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projects Panel -->
+                <div class="work-panel" data-panel="projects">
+                    <div class="work-grid stagger-children">
+                        <!-- Portfolio -->
+                        <div class="work-card" data-id="portfolio" data-type="project">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">🌐</div>
+                                <span class="work-card-type">Live</span>
+                            </div>
+                            <h3 class="work-card-title">Personal Portfolio</h3>
+                            <p class="work-card-subtitle">varanasikarthik.in</p>
+                            <p class="work-card-desc">
+                                Modern, interactive portfolio with premium animations, gold particle effects, and expandable content sections.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">JavaScript</span>
+                                <span class="work-card-tag">CSS3</span>
+                                <span class="work-card-tag">Chart.js</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    60fps
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- SAHAYAM -->
+                        <div class="work-card" data-id="sahayam" data-type="project">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">🛡️</div>
+                                <span class="work-card-type published">Active</span>
+                            </div>
+                            <h3 class="work-card-title">Project SAHAYAM</h3>
+                            <p class="work-card-subtitle">Bilingual Cybersecurity Education</p>
+                            <p class="work-card-desc">
+                                Community initiative teaching cybersecurity to elderly in Telugu/Hindi. Weekly park sessions and campus seminars.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">Education</span>
+                                <span class="work-card-tag">Telugu</span>
+                                <span class="work-card-tag">Hindi</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                                    320+ reached
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- University Recommendation -->
+                        <div class="work-card" data-id="uni-rec" data-type="project">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">🎓</div>
+                                <span class="work-card-type">ML</span>
+                            </div>
+                            <h3 class="work-card-title">University Recommendation</h3>
+                            <p class="work-card-subtitle">ML-Powered Grad School Matching</p>
+                            <p class="work-card-desc">
+                                TF-IDF based recommendation system matching student profiles to 470+ universities.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">Python</span>
+                                <span class="work-card-tag">Flask</span>
+                                <span class="work-card-tag">TF-IDF</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                    470+ Unis
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- IoT Lighting -->
+                        <div class="work-card" data-id="iot-lighting" data-type="project">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">💡</div>
+                                <span class="work-card-type">IoT</span>
+                            </div>
+                            <h3 class="work-card-title">IoT Smart Lighting</h3>
+                            <p class="work-card-subtitle">Energy Efficient Automation</p>
+                            <p class="work-card-desc">
+                                Arduino-based smart lighting with PIR motion detection. Achieved 40% energy savings.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">Arduino</span>
+                                <span class="work-card-tag">C++</span>
+                                <span class="work-card-tag">Sensors</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                                    40% Savings
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Wealth Management -->
+                        <div class="work-card" data-id="wealth-mgmt" data-type="project">
+                            <div class="work-card-header">
+                                <div class="work-card-icon">📊</div>
+                                <span class="work-card-type">Desktop</span>
+                            </div>
+                            <h3 class="work-card-title">Wealth Management</h3>
+                            <p class="work-card-subtitle">Java Portfolio Tracker</p>
+                            <p class="work-card-desc">
+                                Full-featured portfolio management with risk assessment and performance visualization.
+                            </p>
+                            <div class="work-card-tags">
+                                <span class="work-card-tag">Java</span>
+                                <span class="work-card-tag">MySQL</span>
+                                <span class="work-card-tag">Swing</span>
+                            </div>
+                            <div class="work-card-footer">
+                                <span class="work-card-metric">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                    MVC Pattern
+                                </span>
+                                <span class="work-card-cta">
+                                    View Details
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Work Modal -->
+    <div class="work-modal-overlay">
+        <div class="work-modal">
+            <div class="work-modal-header">
+                <!-- Content injected by JS -->
+            </div>
+            <div class="work-modal-body">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================
+         EXPERIENCE SECTION
+    ============================================ -->
+    <section class="section" id="experience">
+        <div class="section-header reveal">
+            <span class="section-tag">Experience</span>
+            <h2 class="section-title">
+                Professional <span class="gradient-text">Journey</span>
+            </h2>
+            <p class="section-desc">
+                Industry internships and academic leadership roles that shaped my expertise.
+            </p>
+        </div>
+        
+        <div class="experience-container">
+            <div class="experience-timeline stagger-children">
+                <!-- Hitachi -->
+                <div class="experience-card" data-id="hitachi">
+                    <div class="experience-card-glow"></div>
+                    <div class="experience-card-header">
+                        <div class="experience-card-logo">🏢</div>
+                        <div class="experience-card-info">
+                            <h3 class="experience-card-company">Hitachi Systems India</h3>
+                            <p class="experience-card-role">Cybersecurity Research Intern</p>
+                            <div class="experience-card-meta">
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Hyderabad
+                                </span>
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    May - June 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="experience-card-desc">
+                        Deployed Palo Alto firewalls across 3 sites. Analyzed 1,000+ VPN sessions. Debugged X.509 certificate chain issues. Mentored by Vishal Kalla.
+                    </p>
+                    <div class="experience-card-tags">
+                        <span class="experience-card-tag">Palo Alto</span>
+                        <span class="experience-card-tag">Firewall</span>
+                        <span class="experience-card-tag">VPN</span>
+                        <span class="experience-card-tag">X.509</span>
+                    </div>
+                    <div class="experience-card-cta">
+                        <span>View Details</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Strategic Wealth -->
+                <div class="experience-card" data-id="strategic-wealth">
+                    <div class="experience-card-glow"></div>
+                    <div class="experience-card-header">
+                        <div class="experience-card-logo">📊</div>
+                        <div class="experience-card-info">
+                            <h3 class="experience-card-company">GITAM University</h3>
+                            <p class="experience-card-role">Strategic Wealth Internship</p>
+                            <div class="experience-card-meta">
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Hyderabad
+                                </span>
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                                    Academic
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="experience-card-desc">
+                        Academic internship focused on strategic wealth management and financial analysis methodologies.
+                    </p>
+                    <div class="experience-card-tags">
+                        <span class="experience-card-tag">Finance</span>
+                        <span class="experience-card-tag">Analysis</span>
+                        <span class="experience-card-tag">Research</span>
+                    </div>
+                    <div class="experience-card-cta">
+                        <span>View Details</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Teaching Assistant -->
+                <div class="experience-card" data-id="ta">
+                    <div class="experience-card-glow"></div>
+                    <div class="experience-card-header">
+                        <div class="experience-card-logo">🎓</div>
+                        <div class="experience-card-info">
+                            <h3 class="experience-card-company">GITAM University</h3>
+                            <p class="experience-card-role">Teaching Assistant - Computer Networks</p>
+                            <div class="experience-card-meta">
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Hyderabad
+                                </span>
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    Jan - May 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="experience-card-desc">
+                        Led lab sessions for 120+ students covering subnetting to packet analysis. Redesigned DNS tunneling lab with curated packet captures.
+                    </p>
+                    <div class="experience-card-tags">
+                        <span class="experience-card-tag">Teaching</span>
+                        <span class="experience-card-tag">Networks</span>
+                        <span class="experience-card-tag">Wireshark</span>
+                    </div>
+                    <div class="experience-card-cta">
+                        <span>View Details</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Department Student Assistant -->
+                <div class="experience-card" data-id="dsa">
+                    <div class="experience-card-glow"></div>
+                    <div class="experience-card-header">
+                        <div class="experience-card-logo">📋</div>
+                        <div class="experience-card-info">
+                            <h3 class="experience-card-company">GITAM University</h3>
+                            <p class="experience-card-role">Department Student Assistant</p>
+                            <div class="experience-card-meta">
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Hyderabad
+                                </span>
+                                <span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    Jul 2023 - Jan 2025
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="experience-card-desc">
+                        Led 15-day cyber safety campaign across 4 departments. Established monthly security seminars with industry speakers.
+                    </p>
+                    <div class="experience-card-tags">
+                        <span class="experience-card-tag">Leadership</span>
+                        <span class="experience-card-tag">Security</span>
+                        <span class="experience-card-tag">Events</span>
+                    </div>
+                    <div class="experience-card-cta">
+                        <span>View Details</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Modal -->
+    <div class="experience-modal-overlay">
+        <div class="experience-modal">
+            <div class="experience-modal-header">
+                <!-- Content injected by JS -->
+            </div>
+            <div class="experience-modal-body">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================
+         EDUCATION SECTION
+    ============================================ -->
+    <section class="section" id="education">
+        <div class="section-header reveal">
+            <span class="section-tag">Education</span>
+            <h2 class="section-title">
+                Academic <span class="gradient-text">Foundation</span>
+            </h2>
+            <p class="section-desc">
+                Building expertise through rigorous academic training in computer science and cybersecurity.
+            </p>
+        </div>
+        
+        <div class="education-container">
+            <div class="education-card reveal-scale">
+                <div class="education-card-header">
+                    <div class="education-card-logo">🎓</div>
+                    <div class="education-card-info">
+                        <h3 class="education-card-institution">GITAM University</h3>
+                        <p class="education-card-degree">B.Tech Computer Science (Cybersecurity)</p>
+                        <div class="education-card-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                Hyderabad, India
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                                2021 - 2025
+                            </span>
+                        </div>
+                    </div>
+                    <div class="education-gpa-badge">
+                        <span class="education-gpa-value">8.82</span>
+                        <span class="education-gpa-label">CGPA / 10</span>
+                    </div>
+                </div>
+                
+                <p class="education-card-desc">
+                    First Class with Distinction. Ranked 4th in B.Tech Cyber Security. Final semesters achieved 9.47 and 9.50 SGPA - first in batch. Conducted research and took leadership roles.
+                </p>
+                
+                <div class="education-card-highlights">
+                    <div class="education-highlight">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        First Class with Distinction
+                    </div>
+                    <div class="education-highlight">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        3 Research Papers
+                    </div>
+                    <div class="education-highlight">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Teaching Assistant
+                    </div>
+                    <div class="education-highlight">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Ranked 4th in Batch
+                    </div>
+                </div>
+                
+                <div class="education-card-cta">
+                    <span>View Full Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Modal -->
+    <div class="education-modal-overlay">
+        <div class="education-modal">
+            <div class="education-modal-header">
+                <!-- Content injected by JS -->
+            </div>
+            <div class="education-modal-body">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-text">© 2025 Sai Srinivasa Karthik Varanasi. Built with passion.</p>
+            <div class="footer-links">
+                <a href="https://github.com/vssk18" target="_blank" class="footer-link">GitHub</a>
+                <a href="https://linkedin.com/in/karthikvaranasi" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="mailto:karthik@varanasikarthik.in" class="footer-link">Email</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="js/core.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/work.js"></script>
+    <script src="js/experience.js"></script>
+    <script src="js/education.js"></script>
+</body>
+</html>

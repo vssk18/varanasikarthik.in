@@ -1,0 +1,439 @@
+/*
+ * ABOUT SECTION - What I Do
+ * Premium cards with detailed modal expansion
+ */
+
+/* ============================================
+   ABOUT GRID
+============================================ */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   ABOUT CARD - Brief View
+============================================ */
+.about-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    cursor: pointer;
+    transition: all 0.6s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover glow effect */
+.about-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(251, 191, 36, 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.about-card:hover::before { opacity: 1; }
+
+/* Rotating glow border */
+.about-card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, var(--gold-glow), transparent 30%);
+    animation: card-glow-rotate 10s linear infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.about-card:hover .about-card-glow {
+    opacity: 0.4;
+}
+
+@keyframes card-glow-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(251, 191, 36, 0.4);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.3), 0 0 50px var(--gold-glow);
+}
+
+/* Card Content */
+.about-card-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+}
+
+.about-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.01em;
+}
+
+.about-card-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Brief highlights */
+.about-card-highlights {
+    list-style: none;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-card-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 0;
+}
+
+.about-card-highlights li svg {
+    width: 16px;
+    height: 16px;
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+/* CTA */
+.about-card-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.about-card-cta svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s var(--spring);
+}
+
+.about-card:hover .about-card-cta svg {
+    transform: translateX(6px);
+}
+
+/* ============================================
+   ABOUT MODAL - Detailed View
+============================================ */
+.about-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s var(--ease-out-expo);
+}
+
+.about-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.about-modal {
+    width: 100%;
+    max-width: 950px;
+    max-height: 88vh;
+    background: linear-gradient(165deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+    transition: all 0.6s var(--ease-out-expo);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+}
+
+.about-modal-overlay.active .about-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Modal Header */
+.about-modal-header {
+    padding: 35px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.about-modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.4s var(--spring);
+}
+
+.about-modal-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: var(--error);
+    color: var(--error);
+    transform: rotate(90deg);
+}
+
+.about-modal-close svg {
+    width: 22px;
+    height: 22px;
+}
+
+.about-modal-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
+}
+
+.about-modal-title {
+    font-size: 32px;
+    font-weight: 700;
+    padding-right: 70px;
+    letter-spacing: -0.02em;
+}
+
+/* Modal Body */
+.about-modal-body {
+    padding: 40px;
+    overflow-y: auto;
+    max-height: calc(88vh - 160px);
+}
+
+.about-modal-section {
+    margin-bottom: 35px;
+}
+
+.about-modal-section:last-child {
+    margin-bottom: 0;
+}
+
+.about-modal-section-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.01em;
+}
+
+.about-modal-section-title svg {
+    width: 20px;
+    height: 20px;
+}
+
+.about-modal-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+.about-modal-text strong {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Modal Stats */
+.about-modal-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 28px 0;
+}
+
+.about-modal-stat {
+    text-align: center;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: all 0.4s var(--spring);
+}
+
+.about-modal-stat:hover {
+    border-color: rgba(251, 191, 36, 0.3);
+    transform: translateY(-4px);
+}
+
+.about-modal-stat .stat-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    line-height: 1;
+}
+
+.about-modal-stat .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+}
+
+/* Modal Highlights */
+.about-modal-highlights {
+    list-style: none;
+}
+
+.about-modal-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.about-modal-highlights li:last-child {
+    border-bottom: none;
+}
+
+.about-modal-highlights svg {
+    width: 20px;
+    height: 20px;
+    color: var(--success);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* Modal Chart */
+.about-modal-chart {
+    height: 280px;
+    margin-top: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border: 1px solid var(--border);
+}
+
+.about-modal-chart canvas {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 1s var(--ease-out-expo);
+}
+
+.about-modal-chart.animate canvas {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+    }
+    
+    .about-card {
+        min-height: auto;
+    }
+    
+    .about-modal-overlay {
+        padding: 20px;
+    }
+    
+    .about-modal-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-modal-header {
+        padding: 25px 30px;
+    }
+    
+    .about-modal-body {
+        padding: 30px;
+    }
+    
+    .about-modal-title {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-card {
+        padding: 24px;
+    }
+    
+    .about-modal-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-modal-stat .stat-value {
+        font-size: 28px;
+    }
+}

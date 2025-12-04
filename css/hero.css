@@ -1,0 +1,464 @@
+/*
+ * HERO SECTION - Premium
+ * Profile with Expandable QR, Floating Orbs with Tab Navigation
+ */
+
+/* ============================================
+   HERO SECTION
+============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 50px 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 35px;
+    backdrop-filter: blur(10px);
+    animation: hero-badge-glow 4s ease-in-out infinite;
+}
+
+.hero-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes hero-badge-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.1); }
+    50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.25); }
+}
+
+@keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+.hero-title {
+    font-size: clamp(52px, 6vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    letter-spacing: -0.03em;
+}
+
+.hero-title .gradient-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero-desc {
+    font-size: 19px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 45px;
+    max-width: 520px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 55px;
+}
+
+.hero-social {
+    display: flex;
+    gap: 14px;
+}
+
+/* ============================================
+   HERO VISUAL - Profile with QR
+============================================ */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 550px;
+}
+
+.profile-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Profile Card */
+.profile-card {
+    width: 300px;
+    background: linear-gradient(165deg, rgba(18, 18, 26, 0.9) 0%, rgba(10, 10, 15, 0.95) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 30px;
+    position: relative;
+    z-index: 10;
+    transition: all 0.6s var(--ease-out-expo);
+    cursor: default;
+    backdrop-filter: blur(20px);
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--gold-glow) 0%, transparent 50%, var(--gold-glow) 100%);
+    border-radius: var(--radius-xl);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.profile-card:hover::before {
+    opacity: 0.5;
+}
+
+.profile-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 0 60px var(--gold-glow);
+}
+
+/* Profile Image */
+.profile-image-container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--gold);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px var(--gold-glow);
+    transition: all 0.5s var(--ease-out-expo);
+}
+
+.profile-card:hover .profile-image {
+    transform: scale(1.05);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 50px var(--gold-glow);
+}
+
+/* Profile Image Ring Animation */
+.profile-ring {
+    position: absolute;
+    inset: -10px;
+    border: 2px solid transparent;
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: profile-ring-spin 8s linear infinite;
+    opacity: 0.5;
+}
+
+.profile-ring:nth-child(2) {
+    inset: -18px;
+    border-top-color: var(--gold-light);
+    animation-duration: 12s;
+    animation-direction: reverse;
+}
+
+@keyframes profile-ring-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Profile Info */
+.profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-name {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.profile-role {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Profile QR - Expandable */
+.profile-qr {
+    margin-top: 10px;
+}
+
+.profile-qr .qr-mini {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-md);
+    padding: 8px;
+}
+
+.profile-qr .qr-mini:hover {
+    transform: scale(1.15);
+}
+
+/* ============================================
+   FLOATING ORBS - Around Profile
+============================================ */
+.floating-orbs-container {
+    position: absolute;
+    inset: -60px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.floating-orb {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    background: var(--bg-glass);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.5s var(--ease-out-expo);
+    pointer-events: auto;
+    z-index: 5;
+}
+
+/* Orb Positions */
+.floating-orb:nth-child(1) {
+    top: 5%;
+    left: -25%;
+    animation: orb-float-1 8s ease-in-out infinite;
+}
+
+.floating-orb:nth-child(2) {
+    top: 0%;
+    right: -20%;
+    animation: orb-float-2 9s ease-in-out infinite;
+}
+
+.floating-orb:nth-child(3) {
+    bottom: 10%;
+    right: -30%;
+    animation: orb-float-3 7s ease-in-out infinite;
+}
+
+/* Float Animations */
+@keyframes orb-float-1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(12px, -18px) rotate(5deg); }
+    50% { transform: translate(-8px, -28px) rotate(-3deg); }
+    75% { transform: translate(-18px, -12px) rotate(2deg); }
+}
+
+@keyframes orb-float-2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-18px, 12px) rotate(-5deg); }
+    50% { transform: translate(-28px, -8px) rotate(3deg); }
+    75% { transform: translate(-12px, -22px) rotate(-2deg); }
+}
+
+@keyframes orb-float-3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(18px, 18px) rotate(3deg); }
+    50% { transform: translate(8px, -12px) rotate(-5deg); }
+    75% { transform: translate(-12px, 8px) rotate(2deg); }
+}
+
+/* Orb Glow Ring */
+.floating-orb::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--gold), transparent 30%, transparent 70%, var(--gold));
+    opacity: 0.4;
+    z-index: -1;
+    animation: orb-glow-spin 6s linear infinite;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes orb-glow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.floating-orb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--bg-card);
+    z-index: -1;
+}
+
+/* Orb Hover */
+.floating-orb:hover {
+    transform: scale(1.2) !important;
+    border-color: var(--gold);
+    box-shadow: 0 20px 50px rgba(251, 191, 36, 0.4);
+    animation-play-state: paused;
+}
+
+.floating-orb:hover::before {
+    opacity: 1;
+}
+
+/* Orb Content */
+.orb-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.orb-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    line-height: 1;
+}
+
+.orb-label {
+    font-size: 9px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+    text-align: center;
+    max-width: 75px;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+============================================ */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 120px 30px 80px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 70px;
+    }
+    
+    .hero-visual {
+        order: -1;
+        min-height: 450px;
+    }
+    
+    .hero-content {
+        order: 1;
+        max-width: 100%;
+    }
+    
+    .hero-desc { 
+        margin: 0 auto 40px;
+        max-width: 500px;
+    }
+    .hero-actions { justify-content: center; }
+    .hero-social { justify-content: center; }
+    
+    .floating-orb {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .floating-orb:nth-child(1) {
+        top: 0%;
+        left: 0%;
+    }
+    
+    .floating-orb:nth-child(2) {
+        top: -5%;
+        right: 0%;
+    }
+    
+    .floating-orb:nth-child(3) {
+        bottom: 0%;
+        right: 5%;
+    }
+    
+    .orb-value { font-size: 17px; }
+    .orb-icon { font-size: 16px; }
+    .orb-label { font-size: 8px; }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 100px 20px 60px;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .hero-desc {
+        font-size: 16px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-card {
+        width: 260px;
+        padding: 28px 25px;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .floating-orb {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .orb-value { font-size: 15px; }
+    .orb-icon { font-size: 14px; }
+    .orb-label { font-size: 7px; max-width: 60px; }
+}
