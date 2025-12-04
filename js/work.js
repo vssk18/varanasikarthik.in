@@ -131,21 +131,21 @@ class WorkSection {
                 badges: ['Under Review', 'Elsevier Ad Hoc Networks'],
                 title: 'MANET Intrusion Detection System',
                 subtitle: 'Machine Learning-Based Network Security for Mobile Ad-Hoc Networks',
-                overview: `Developed a comprehensive intrusion detection system for Mobile Ad-Hoc Networks (MANETs) using machine learning. The system detects various network attacks including blackhole, grayhole, and flooding attacks with high accuracy. This research demonstrates scientific integrity—I identified and corrected data leakage issues that reduced accuracy from an unrealistic 100% to a credible 94.7%.`,
-                methodology: `The approach involved NS-3 network simulation for data generation, feature engineering for network traffic characteristics, and systematic evaluation of multiple ML algorithms. Extensive hyperparameter tuning and cross-validation ensured robust results. XGBoost emerged as the best performer after rigorous comparison with Random Forest, SVM, and neural network approaches.`,
-                results: `The final XGBoost model achieved <strong>94.7% detection accuracy</strong> with balanced precision and recall across attack types. The system demonstrates practical applicability for real-world MANET deployments while maintaining computational efficiency suitable for resource-constrained devices.`,
+                overview: `Developed a comprehensive intrusion detection system for Mobile Ad-Hoc Networks (MANETs) using machine learning. Built AI system achieving <strong>94.7% accuracy</strong>—originally showed 99.8% but I found data leakage and fixed it despite the accuracy drop, demonstrating research integrity. Created end-to-end pipeline from NS-3 simulation to feature extraction.`,
+                methodology: `Simulated AODV routing in NS-3 and extracted 21 features from 4,207 flow records. First results showed 99.8% accuracy, which was too clean for network data this noisy. Traced through the pipeline and found the scaler had been fitted before the train-test split. Rebuilt everything with proper temporal splitting for honest evaluation.`,
+                results: `The final XGBoost model achieved <strong>94.7% detection accuracy</strong> with 0.978 ROC-AUC and 5.2% false positive rate. Particularly effective against Blackhole attacks (97.2% detection). The methodology is available on TechRxiv, and the manuscript is under faculty review.`,
                 stats: [
-                    { value: '94.7%', label: 'Detection Accuracy' },
-                    { value: 'XGBoost', label: 'Best Model' },
-                    { value: '5', label: 'Attack Types' },
-                    { value: 'NS-3', label: 'Simulation' }
+                    { value: '94.7%', label: 'Accuracy' },
+                    { value: '0.978', label: 'ROC-AUC' },
+                    { value: '97.2%', label: 'Blackhole Detection' },
+                    { value: '4,207', label: 'Flow Records' }
                 ],
                 contributions: [
-                    'Designed complete ML pipeline for network intrusion detection',
+                    'Designed complete ML pipeline from NS-3 simulation to deployment',
                     'Identified and corrected data leakage (scientific integrity)',
-                    'Compared multiple ML algorithms with systematic evaluation',
-                    'Achieved deployment-ready accuracy for real MANETs',
-                    'Created reproducible experimental framework'
+                    'Achieved 5.2% false positive rate with balanced metrics',
+                    'Validated with 5,000+ bootstrap iterations for confidence intervals',
+                    'Created reproducible experimental framework on TechRxiv'
                 ],
                 tech: ['Python', 'XGBoost', 'NS-3', 'Scikit-learn', 'Pandas', 'NumPy'],
                 github: 'https://github.com/vssk18/manet-ids',
@@ -164,31 +164,32 @@ class WorkSection {
                 badges: ['Under Review', 'IEEE TIFS'],
                 title: 'Adversarial Machine Learning Evaluation',
                 subtitle: 'Constraint-Aware Attack Analysis on Network Intrusion Detection',
-                overview: `This research evaluates the robustness of machine learning-based intrusion detection systems against adversarial attacks. A key finding reveals that standard adversarial attacks (FGSM, PGD, C&W) produce <strong>73-89% constraint-violating samples</strong>—meaning they generate network traffic that's physically impossible, rendering such attacks ineffective in practice.`,
-                methodology: `Implemented comprehensive evaluation framework testing multiple adversarial attack methods against trained IDS models. Developed constraint validation system to check if adversarial samples maintain valid network traffic properties (packet counts, byte ratios, timing constraints). This domain-specific validation is crucial for realistic threat assessment.`,
-                results: `Standard attacks showed high theoretical success but <strong>73-89% of adversarial samples violated network constraints</strong>, making them detectable or impossible in real networks. This work highlights the gap between theoretical ML security and practical network security, suggesting current adversarial robustness research may overestimate actual risks for network IDS.`,
+                overview: `Found that most standard adversarial attacks (73-89%) break basic network rules—they create impossible scenarios like negative timing or oversized packets. Built constrained attack algorithms (C-FGSM, C-PGD, C-C&W) that respect real-world network physics while still achieving 40-68% attack success rates.`,
+                methodology: `Implemented comprehensive evaluation framework testing multiple adversarial attack methods against trained IDS models. Developed constraint validation system to check if adversarial samples maintain valid network traffic properties (MTU limits, TCP termination rules, timing constraints). Created live MQTT testbed for realistic validation.`,
+                results: `Standard attacks showed high theoretical success but <strong>73-89% of adversarial samples violated network constraints</strong>, making them detectable or impossible in real networks. Created live MQTT testbed proving current detection systems drop <strong>30-40 percentage points</strong> under realistic constrained attacks.`,
                 stats: [
                     { value: '73-89%', label: 'Constraint Violations' },
-                    { value: '3', label: 'Attack Methods' },
-                    { value: '12', label: 'Constraints Defined' },
-                    { value: '6', label: 'IDS Models Tested' }
+                    { value: '40-68%', label: 'Constrained Success' },
+                    { value: '30-40%', label: 'Detection Drop' },
+                    { value: '12', label: 'Constraints Defined' }
                 ],
                 contributions: [
                     'Revealed high constraint violation rates in standard adversarial attacks',
-                    'Developed domain-specific constraint validation framework',
-                    'Bridged gap between theoretical ML attacks and practical applicability',
-                    'Provided recommendations for constraint-aware adversarial research',
-                    'Demonstrated need for domain knowledge in adversarial ML'
+                    'Built constrained attack algorithms respecting protocol semantics',
+                    'Constrained perturbations stayed within 0.99x of original feature manifold',
+                    'Created live MQTT testbed for realistic attack validation',
+                    'Solo manuscript under review at IEEE TIFS'
                 ],
-                tech: ['Python', 'PyTorch', 'Adversarial-Robustness-Toolbox', 'NumPy', 'Matplotlib'],
+                tech: ['Python', 'PyTorch', 'ART', 'MQTT', 'NumPy', 'Matplotlib'],
                 github: 'https://github.com/vssk18/manet-adversarial-ids',
                 paper: 'https://doi.org/10.36227/techrxiv.176422212.24352740/v1',
                 supervisor: 'Dr. C. Atheeq',
                 chartData: {
-                    type: 'horizontalBar',
-                    labels: ['FGSM', 'PGD', 'C&W'],
-                    data: [89, 79, 73],
-                    title: 'Constraint Violation Rate by Attack (%)'
+                    type: 'bar',
+                    labels: ['FGSM Violations', 'PGD Violations', 'C&W Violations', 'C-FGSM Success', 'C-PGD Success'],
+                    data: [89, 79, 73, 68, 52],
+                    colors: ['#ef4444', '#ef4444', '#ef4444', '#10b981', '#10b981'],
+                    title: 'Attack Analysis (%)'
                 }
             },
             'pqc-iot': {
@@ -197,31 +198,31 @@ class WorkSection {
                 badges: ['Under Review', 'IEEE TIFS'],
                 title: 'Post-Quantum Cryptography for IoT',
                 subtitle: 'Performance Analysis of NIST PQC Algorithms on Constrained Devices',
-                overview: `Conducted comprehensive performance analysis of NIST post-quantum cryptography candidates on IoT/constrained devices. Through <strong>4,608 experimental configurations</strong>, identified NTRU-Prime-hrss701 as optimal for IoT applications, balancing security, key sizes, and computational efficiency.`,
-                methodology: `Systematic evaluation across multiple PQC families (lattice-based, code-based, hash-based) on various constrained hardware platforms. Measured key generation time, encapsulation/decapsulation performance, memory usage, and energy consumption. Statistical analysis ensured robust conclusions across diverse operating conditions.`,
-                results: `<strong>NTRU-Prime-hrss701</strong> emerged as the best candidate for IoT, offering excellent performance-to-security ratio. The research provides practical guidance for embedded systems developers preparing for post-quantum transition, with detailed performance profiles for each algorithm on specific hardware.`,
+                overview: `Tested 6 NIST post-quantum algorithms across <strong>4,608 configurations</strong> on Raspberry Pi, ESP32, and Arduino, measuring handshake latency, memory usage, and thermal behavior under realistic MQTT workloads. Found performance varied significantly—under memory pressure, ML-KEM handshake latency rose 3.4x above baseline while NTRU-Prime stayed within 12%.`,
+                methodology: `Built testing framework handling broker reconnections, isolating cryptographic timing from network delay using perf_counter_ns, and logging over 600,000 messages. Tested six NIST algorithms (ML-KEM, NTRU-Prime, BIKE, HQC, FrodoKEM, Classic McEliece) across varying heap pressure, thermal load, and packet loss simultaneously.`,
+                results: `<strong>NTRU-Prime</strong> emerged as optimal for IoT, staying within 12% performance under stress while ML-KEM degraded 3.4x. Larger finding: network delay swallows cryptographic overhead once conditions degrade, making real-world network engineering as critical as algorithm selection.`,
                 stats: [
                     { value: '4,608', label: 'Configurations' },
-                    { value: '8', label: 'PQC Algorithms' },
-                    { value: 'hrss701', label: 'Best for IoT' },
-                    { value: '3', label: 'Hardware Platforms' }
+                    { value: '600K+', label: 'Messages Logged' },
+                    { value: '12%', label: 'NTRU Variance' },
+                    { value: '3.4x', label: 'ML-KEM Degradation' }
                 ],
                 contributions: [
                     'Comprehensive PQC benchmark on resource-constrained devices',
-                    'Identified NTRU-Prime-hrss701 as optimal for IoT',
-                    'Provided practical guidance for post-quantum migration',
-                    'Detailed performance profiles across multiple platforms',
+                    'Identified NTRU-Prime as optimal for IoT under stress',
+                    'Built framework isolating crypto timing from network delay',
+                    'Measured thermal behavior affecting CPU throttling',
                     'Open-source benchmarking framework for reproducibility'
                 ],
-                tech: ['C', 'Python', 'liboqs', 'ARM', 'Raspberry Pi', 'ESP32'],
+                tech: ['C', 'Python', 'liboqs', 'MQTT', 'Raspberry Pi', 'ESP32'],
                 github: 'https://github.com/vssk18/PQSM-RESEARCH',
                 paper: 'https://doi.org/10.36227/techrxiv.176425515.57150749/v1',
                 supervisor: 'Dr. C. Atheeq',
                 chartData: {
-                    type: 'radar',
-                    labels: ['Speed', 'Memory', 'Key Size', 'Security', 'Energy'],
-                    data: [85, 78, 82, 95, 80],
-                    title: 'NTRU-Prime-hrss701 Profile'
+                    type: 'bar',
+                    labels: ['ML-KEM', 'NTRU-Prime', 'BIKE', 'HQC', 'FrodoKEM'],
+                    data: [340, 112, 185, 210, 290],
+                    title: 'Latency Under Stress (% of Baseline)'
                 }
             },
             
@@ -234,9 +235,9 @@ class WorkSection {
                 badges: ['Live', 'Web Dev'],
                 title: 'Personal Portfolio Website',
                 subtitle: 'Modern, Interactive Portfolio with Premium Animations',
-                overview: `Built a highly interactive personal portfolio showcasing my work in cybersecurity research and development. Features include premium gold particle animations with cursor influence, smooth scroll reveals, expandable content sections, and QR code integration for easy access to resources.`,
+                overview: `Built a highly interactive personal portfolio showcasing my work in cybersecurity research and development. Features include premium gold particle animations with cursor influence, smooth scroll reveals, expandable content sections, animated skill bars, and QR code integration for easy access to resources.`,
                 methodology: `Developed using vanilla JavaScript for maximum performance, with CSS custom properties for theming. Implemented custom cursor, particle systems, and water ripple effects. Mobile-first responsive design with progressive enhancement for desktop features.`,
-                results: `A fast, visually stunning portfolio that effectively showcases research and projects while providing excellent user experience across all devices.`,
+                results: `A fast, visually stunning portfolio that effectively showcases research and projects while providing excellent user experience across all devices. Achieves 60fps animation performance.`,
                 stats: [
                     { value: '120+', label: 'Gold Particles' },
                     { value: '60fps', label: 'Animation' },
@@ -245,12 +246,12 @@ class WorkSection {
                 ],
                 contributions: [
                     'Custom gold particle system with cursor influence',
-                    'Premium animations and transitions',
+                    'Premium animations and staggered transitions',
+                    'Animated skill bars with shine effects',
                     'QR code integration throughout',
-                    'Mobile-optimized performance',
-                    'Modular CSS/JS architecture'
+                    'Mobile-optimized performance'
                 ],
-                tech: ['HTML5', 'CSS3', 'JavaScript', 'Chart.js', 'GSAP'],
+                tech: ['HTML5', 'CSS3', 'JavaScript', 'Chart.js'],
                 github: 'https://github.com/vssk18/varanasikarthik.in',
                 liveUrl: 'https://varanasikarthik.in',
                 chartData: {
@@ -266,29 +267,29 @@ class WorkSection {
                 badges: ['Active', 'Community'],
                 title: 'Project SAHAYAM',
                 subtitle: 'Bilingual Cybersecurity Education for Elderly',
-                overview: `Founded a community initiative to teach cybersecurity basics to elderly individuals in Telugu and Hindi. Weekly park sessions and campus seminars reaching <strong>320+ participants</strong> with bilingual checklists and follow-up adoption tracking.`,
-                methodology: `Developed culturally appropriate educational materials, conducted in-person sessions, and created easy-to-follow guides. Topics cover phishing awareness, secure banking, password management, and smartphone security—all explained in relatable, jargon-free language.`,
-                results: `Successfully educated 320+ community members about digital safety, reducing their vulnerability to common cyber threats and scams. The bilingual approach significantly improved comprehension and retention.`,
+                overview: `Founded a community initiative to teach cybersecurity basics to elderly individuals in Telugu and Hindi. Weekly park sessions and campus seminars reaching <strong>320+ participants</strong> since August 2024, with bilingual checklists and follow-up adoption tracking to measure real impact.`,
+                methodology: `Developed culturally appropriate educational materials. Topics cover phishing awareness, secure banking, password management, UPI scam detection, and smartphone security—all explained in relatable, jargon-free language. Built offline SMS scam filter for participants with limited data.`,
+                results: `Successfully educated 320+ community members about digital safety. The bilingual approach significantly improved comprehension and retention. Follow-ups track whether MFA stays enabled one week later.`,
                 stats: [
-                    { value: '320+', label: 'People Reached' },
+                    { value: '320+', label: 'Participants' },
                     { value: '2', label: 'Languages' },
-                    { value: '8', label: 'Topics Covered' },
-                    { value: '100%', label: 'Positive Feedback' }
+                    { value: '8+', label: 'Topics Covered' },
+                    { value: 'Aug 2024', label: 'Started' }
                 ],
                 contributions: [
                     'Bilingual educational materials in Telugu/Hindi',
                     'Practical, jargon-free security guidance',
+                    'Built offline SMS scam filter in C++',
                     'Hands-on demonstration sessions',
-                    'Ongoing community support',
-                    'Measurable improvement in security awareness'
+                    'Follow-up adoption tracking system'
                 ],
-                tech: ['Community Education', 'Telugu', 'Hindi', 'Security Awareness'],
+                tech: ['Community Education', 'Telugu', 'Hindi', 'C++', 'Security Awareness'],
                 github: 'https://github.com/vssk18/PROJECT-SAHAYAM',
                 liveUrl: null,
                 chartData: {
-                    type: 'pie',
-                    labels: ['Phishing', 'Banking', 'Passwords', 'General Safety'],
-                    data: [30, 25, 25, 20],
+                    type: 'doughnut',
+                    labels: ['Phishing/UPI Scams', 'Banking Safety', 'Password/MFA', 'General Safety'],
+                    data: [35, 25, 25, 15],
                     title: 'Topics Coverage'
                 }
             },
@@ -298,30 +299,30 @@ class WorkSection {
                 badges: ['ML', 'Web App'],
                 title: 'University Recommendation System',
                 subtitle: 'ML-Powered Graduate School Matching',
-                overview: `Built a recommendation system for graduate school applications. Takes GPA, GRE, research papers, and work experience, then computes a profile score. Maps to tiers that classify universities into Ambitious, Target, or Safe buckets.`,
-                methodology: `Uses TF-IDF to convert student research interests and program descriptions into comparable vectors. Cosine similarity measures match quality. Multi-factor scoring with database of 470+ universities.`,
-                results: `Used for Stanford and CMU applications. Quota system distributes picks across buckets for balanced recommendations.`,
+                overview: `Built a recommendation system for graduate school applications. Takes GPA, GRE, research papers, and work experience, then computes a profile score. Maps to tiers that classify universities into Ambitious, Target, or Safe buckets. Used for my actual Stanford and CMU applications.`,
+                methodology: `Uses TF-IDF to convert student research interests and program descriptions into comparable vectors. Cosine similarity measures match quality. Multi-factor scoring with weighted factors (GPA 40%, IELTS 25%, GRE 20%, Research 10%, Experience 5%). Database of 470+ universities.`,
+                results: `Used for Stanford and CMU applications. Quota system distributes picks across buckets for balanced recommendations. Added hard rule that top-15 programs are always Ambitious regardless of profile strength.`,
                 stats: [
                     { value: '470+', label: 'Universities' },
                     { value: 'TF-IDF', label: 'Algorithm' },
-                    { value: '5', label: 'Factors' },
-                    { value: 'Flask', label: 'Backend' }
+                    { value: '5', label: 'Scoring Factors' },
+                    { value: '3', label: 'Buckets' }
                 ],
                 contributions: [
                     'TF-IDF vectorization for research interest matching',
                     'Multi-factor weighted scoring system',
                     'Ambitious/Target/Safe bucket classification',
                     'Flask web interface with responsive design',
-                    'Database of 470+ universities with program details'
+                    'HashMap for O(1) university lookup by name'
                 ],
                 tech: ['Python', 'Flask', 'Scikit-learn', 'TF-IDF', 'Pandas', 'SQLite'],
                 github: 'https://github.com/vssk18/UNIVERSITY-RECOMMENDATION-SYSTEM',
                 liveUrl: null,
                 chartData: {
                     type: 'bar',
-                    labels: ['Research Fit', 'Ranking', 'GPA Match', 'Location', 'GRE'],
+                    labels: ['GPA (40%)', 'IELTS (25%)', 'GRE (20%)', 'Research (10%)', 'Experience (5%)'],
                     data: [40, 25, 20, 10, 5],
-                    title: 'Factor Weights (%)'
+                    title: 'Factor Weights'
                 }
             },
             'iot-lighting': {
@@ -331,8 +332,8 @@ class WorkSection {
                 title: 'Energy Efficient IoT Lighting',
                 subtitle: 'Smart Automation with 40% Energy Savings',
                 overview: `Arduino-based smart lighting system automatically adjusting brightness based on ambient light and occupancy. Achieved <strong>40% energy savings</strong> through intelligent sensor fusion and PWM dimming.`,
-                methodology: `PIR motion detection activates lights only when room occupied. LDR continuously monitors natural light levels. PWM provides smooth 0-100% dimming. Current sensor logs energy consumption.`,
-                results: `40% energy savings vs always-on baseline. Average response time 200ms. Smooth dimming with no visible flicker.`,
+                methodology: `PIR motion detection activates lights only when room occupied. LDR continuously monitors natural light levels. PWM provides smooth 0-100% dimming via IRF540N MOSFET. ACS712 current sensor logs energy consumption. State machine logic for smooth transitions.`,
+                results: `40% energy savings vs always-on baseline. Average response time 200ms. Smooth dimming with no visible flicker. SD card logging for analysis.`,
                 stats: [
                     { value: '40%', label: 'Energy Saved' },
                     { value: '8mo', label: 'Payback' },
@@ -362,11 +363,11 @@ class WorkSection {
                 badges: ['Java', 'Desktop'],
                 title: 'Strategic Wealth Management',
                 subtitle: 'Portfolio Tracking with Java/MySQL',
-                overview: `Java-based desktop application for personal investment portfolio management. Features real-time tracking, risk assessment, asset allocation analysis, and performance visualization.`,
-                methodology: `Java 11 with Swing GUI. MySQL database with JDBC connectivity. Portfolio tracking uses HashMap for O(1) asset lookup. JFreeChart for visualization.`,
-                results: `Full-featured portfolio manager with transaction history, risk metrics (beta, Sharpe ratio), and benchmark comparison.`,
+                overview: `Java-based desktop application for personal investment portfolio management. Features real-time tracking, risk assessment, asset allocation analysis, and performance visualization. Layered architecture separating model, logic, and data classes.`,
+                methodology: `Java 11 with Swing GUI. MySQL database with JDBC connectivity. Portfolio tracking uses HashMap for O(1) asset lookup by symbol. ArrayList for transaction history. JFreeChart for visualization.`,
+                results: `Full-featured portfolio manager with transaction history, risk metrics (beta, Sharpe ratio), and benchmark comparison. Multi-asset support including stocks, bonds, mutual funds, and FDs.`,
                 stats: [
-                    { value: 'Java', label: 'Backend' },
+                    { value: 'Java 11', label: 'Backend' },
                     { value: 'MySQL', label: 'Database' },
                     { value: 'MVC', label: 'Pattern' },
                     { value: 'Swing', label: 'GUI' }
@@ -627,14 +628,29 @@ class WorkSection {
                     display: true,
                     text: chartData.title,
                     color: '#f8fafc',
-                    font: { size: 14, weight: '600' },
-                    padding: { bottom: 20 }
+                    font: { size: 15, weight: '600' },
+                    padding: { bottom: 25 }
                 }
             },
             animation: {
                 duration: 1500,
                 easing: 'easeOutQuart'
             }
+        };
+        
+        // Custom colors for adversarial chart
+        const getColors = () => {
+            if (chartData.colors) {
+                return chartData.colors.map(c => c === '#ef4444' ? 'rgba(239, 68, 68, 0.7)' : 'rgba(16, 185, 129, 0.7)');
+            }
+            return 'rgba(251, 191, 36, 0.7)';
+        };
+        
+        const getBorderColors = () => {
+            if (chartData.colors) {
+                return chartData.colors;
+            }
+            return 'rgba(251, 191, 36, 1)';
         };
         
         switch (chartData.type) {
@@ -646,8 +662,8 @@ class WorkSection {
                         labels: chartData.labels,
                         datasets: [{
                             data: chartData.data,
-                            backgroundColor: 'rgba(251, 191, 36, 0.7)',
-                            borderColor: 'rgba(251, 191, 36, 1)',
+                            backgroundColor: getColors(),
+                            borderColor: getBorderColors(),
                             borderWidth: 2,
                             borderRadius: 6
                         }]
@@ -656,37 +672,36 @@ class WorkSection {
                         ...baseOptions,
                         indexAxis: chartData.type === 'horizontalBar' ? 'y' : 'x',
                         scales: {
-                            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-                            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' }, beginAtZero: true }
+                            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { size: 11 } } },
+                            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { size: 11 } }, beginAtZero: true }
                         }
                     }
                 };
             
-            case 'radar':
+            case 'line':
                 return {
-                    type: 'radar',
+                    type: 'line',
                     data: {
                         labels: chartData.labels,
                         datasets: [{
                             data: chartData.data,
-                            backgroundColor: 'rgba(251, 191, 36, 0.2)',
                             borderColor: 'rgba(251, 191, 36, 1)',
-                            borderWidth: 2,
+                            backgroundColor: 'rgba(251, 191, 36, 0.15)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
                             pointBackgroundColor: 'rgba(251, 191, 36, 1)',
-                            pointRadius: 4
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6,
+                            pointHoverRadius: 8
                         }]
                     },
                     options: {
                         ...baseOptions,
                         scales: {
-                            r: {
-                                beginAtZero: true,
-                                max: 100,
-                                grid: { color: 'rgba(255,255,255,0.1)' },
-                                angleLines: { color: 'rgba(255,255,255,0.1)' },
-                                pointLabels: { color: '#94a3b8', font: { size: 11 } },
-                                ticks: { display: false }
-                            }
+                            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' }, beginAtZero: true }
                         }
                     }
                 };
@@ -711,7 +726,7 @@ class WorkSection {
                     },
                     options: {
                         ...baseOptions,
-                        cutout: chartData.type === 'doughnut' ? '60%' : 0
+                        cutout: chartData.type === 'doughnut' ? '55%' : 0
                     }
                 };
             
