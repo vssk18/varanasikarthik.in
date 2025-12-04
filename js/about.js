@@ -63,7 +63,7 @@ class AboutSection {
                 sections: [
                     {
                         title: '🔬 Current Research Focus',
-                        content: `My research addresses real-world security challenges through a systematic, evidence-based approach. I specialize in applying machine learning to network security problems, always maintaining scientific integrity—as demonstrated when I identified and corrected data leakage issues that reduced my MANET IDS accuracy from an unrealistic 100% to a credible <strong>94.7%</strong>.`
+                        content: `My research addresses real-world security challenges through a systematic, evidence-based approach. I specialize in applying machine learning to network security problems, always maintaining scientific integrity—as demonstrated when I identified and corrected data leakage issues that reduced my MANET IDS accuracy from an unrealistic 99.8% to a credible <strong>94.7%</strong>.`
                     },
                     {
                         title: '📊 Research Methodology',
@@ -76,10 +76,10 @@ class AboutSection {
                     { value: '4608', label: 'Experiments Run' }
                 ],
                 highlights: [
-                    'Published research submitted to IEEE TIFS and Elsevier Ad Hoc Networks',
-                    'Developed novel approaches to constraint-aware adversarial attacks on network IDS',
-                    'Identified NTRU-Prime-hrss701 as optimal PQC algorithm for IoT devices',
-                    'Collaborated with academic supervisors and industry mentors'
+                    'Research submitted to IEEE TIFS and Elsevier Ad Hoc Networks',
+                    'Developed constraint-aware adversarial attacks revealing 73-89% constraint violations',
+                    'Identified NTRU-Prime as optimal PQC algorithm for IoT (stays within 12% under stress)',
+                    'Collaborated with Dr. Arshad Ahmad Khan Mohammad and Dr. C. Atheeq'
                 ],
                 chartType: 'research'
             },
@@ -90,51 +90,51 @@ class AboutSection {
                 sections: [
                     {
                         title: '🛠️ Technical Implementation',
-                        content: `I've implemented complete security systems from scratch, including network simulation environments using <strong>NS-3</strong>, machine learning pipelines with feature engineering for network traffic analysis, and cryptographic implementations on constrained IoT devices. Every system is built with testability and maintainability in mind.`
+                        content: `I've implemented complete security systems from scratch, including network simulation environments using <strong>NS-3</strong>, machine learning pipelines with feature engineering for network traffic analysis, and cryptographic implementations on constrained IoT devices. Built testing framework handling broker reconnections with perf_counter_ns timing precision.`
                     },
                     {
                         title: '🔍 Security Analysis',
-                        content: `At Hitachi Systems India, I performed <strong>X.509 certificate debugging</strong>, reading OpenSSL C code and writing test snippets to isolate bugs. This hands-on experience with production security infrastructure taught me how security works at the protocol level.`
+                        content: `At Hitachi Systems India, I performed <strong>X.509 certificate debugging</strong>, reading OpenSSL C code and writing test snippets to isolate bugs. Traced GlobalProtect drops to misordered intermediate certificate and wrote 3-page troubleshooting runbook reused across multiple deployments.`
                     }
                 ],
                 stats: [
-                    { value: '6+', label: 'ML Models Trained' },
-                    { value: '17+', label: 'Months Industry Exp' },
-                    { value: '100+', label: 'Students Trained' }
+                    { value: '1000+', label: 'VPN Sessions Analyzed' },
+                    { value: '3', label: 'Sites Deployed' },
+                    { value: '120+', label: 'Students Taught' }
                 ],
                 highlights: [
                     'Built MANET intrusion detection system with XGBoost achieving 94.7% accuracy',
-                    'Implemented adversarial attack evaluation framework revealing 73-89% constraint violations',
-                    'Performed X.509 certificate analysis and debugging at Hitachi Systems',
-                    'Created network simulation environments for security research'
+                    'Created live MQTT testbed proving detection drops 30-40% under realistic attacks',
+                    'Deployed Palo Alto firewalls across 3 regional sites at Hitachi',
+                    'Developed capacity matrix for 1,000+ concurrent VPN sessions'
                 ],
                 chartType: 'skills'
             },
             {
                 badge: 'Community Impact',
                 title: 'Security Education',
-                overview: `I'm passionate about making cybersecurity accessible to everyone. Through Project SAHAYAM and academic initiatives, I've taught security concepts to diverse audiences—from elderly community members learning smartphone safety to university students exploring digital forensics.`,
+                overview: `I'm passionate about making cybersecurity accessible to everyone. Through Project SAHAYAM and academic initiatives, I've taught security concepts to diverse audiences—from elderly community members learning smartphone safety to university students exploring network protocols.`,
                 sections: [
                     {
                         title: '🌟 Project SAHAYAM',
-                        content: `Inspired by helping my father during a 2 AM security incident, I founded this <strong>bilingual cybersecurity education initiative</strong> for elderly community members. Teaching in Telugu and Hindi, I make complex security concepts understandable for non-technical users, covering topics from phishing awareness to secure banking practices.`
+                        content: `Inspired by helping my father during a 2 AM security incident, I founded this <strong>bilingual cybersecurity education initiative</strong>. Weekly park sessions and campus seminars reaching <strong>320+ participants</strong> since August 2024. Teaching in Telugu and Hindi, covering phishing, MFA, and safe browsing with bilingual checklists and follow-up adoption tracking.`
                     },
                     {
                         title: '🎓 Academic Leadership',
-                        content: `As <strong>Teaching Assistant for Digital Forensics</strong> and Department Student Assistant at GITAM, I led security teams, conducted cyber safety drives for 100+ students, established monthly seminars, and improved lab documentation. These roles taught me how to communicate technical concepts effectively.`
+                        content: `As <strong>Teaching Assistant for Computer Networks</strong> under Dr. C. Atheeq, I led lab sessions for 120+ students covering subnetting to packet analysis. Redesigned DNS tunneling lab with curated PCAPs and reading guide—adopted as standard course material. Also served as Department Student Assistant for 18 months.`
                     }
                 ],
                 stats: [
-                    { value: '100+', label: 'Students Trained' },
-                    { value: '2', label: 'Languages Used' },
-                    { value: '12+', label: 'Seminars Led' }
+                    { value: '320+', label: 'SAHAYAM Participants' },
+                    { value: '120+', label: 'Students Taught' },
+                    { value: '15', label: 'Day Campaign' }
                 ],
                 highlights: [
                     'Founded Project SAHAYAM for elderly cybersecurity education',
-                    'Served as Teaching Assistant for Digital Forensics course',
-                    'Conducted cyber safety awareness drives reaching 100+ students',
-                    'Established monthly security seminars at department level',
-                    'Improved lab documentation for better student learning'
+                    'Teaching Assistant for Computer Networks (120+ students)',
+                    'Led 15-day cyber safety campaign across 4 departments',
+                    'Established monthly security seminars with industry speakers',
+                    'Redesigned DNS tunneling lab adopted as standard material'
                 ],
                 chartType: 'impact'
             }
@@ -220,7 +220,7 @@ class AboutSection {
         }
         
         const chartConfigs = [
-            // Research chart
+            // Research chart - Bar chart (cleaner than radar)
             {
                 type: 'bar',
                 data: {
@@ -244,43 +244,44 @@ class AboutSection {
                 },
                 options: this.getChartOptions('Research Performance')
             },
-            // Skills chart
+            // Skills chart - Horizontal Bar (cleaner than radar)
             {
-                type: 'radar',
+                type: 'bar',
                 data: {
                     labels: ['Python', 'ML/AI', 'Network Security', 'Cryptography', 'Research', 'Linux'],
                     datasets: [{
-                        label: 'Skill Level',
+                        label: 'Proficiency',
                         data: [90, 85, 88, 82, 92, 85],
-                        backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                        backgroundColor: 'rgba(251, 191, 36, 0.7)',
                         borderColor: 'rgba(251, 191, 36, 1)',
                         borderWidth: 2,
-                        pointBackgroundColor: 'rgba(251, 191, 36, 1)',
-                        pointBorderColor: '#fff',
-                        pointRadius: 4
+                        borderRadius: 6
                     }]
                 },
                 options: {
                     ...this.getChartOptions('Technical Skills'),
+                    indexAxis: 'y',
                     scales: {
-                        r: {
+                        x: {
                             beginAtZero: true,
                             max: 100,
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-                            pointLabels: { color: '#94a3b8', font: { size: 11 } },
-                            ticks: { display: false }
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8', font: { size: 12 } }
                         }
                     }
                 }
             },
-            // Impact chart
+            // Impact chart - Doughnut
             {
                 type: 'doughnut',
                 data: {
-                    labels: ['Students Trained', 'Seminars', 'Safety Drives', 'Documentation'],
+                    labels: ['SAHAYAM (320+)', 'Students Taught', 'Campaign Reach', 'Seminars'],
                     datasets: [{
-                        data: [100, 12, 8, 15],
+                        data: [320, 120, 100, 12],
                         backgroundColor: [
                             'rgba(251, 191, 36, 0.8)',
                             'rgba(168, 85, 247, 0.8)',
@@ -293,7 +294,7 @@ class AboutSection {
                 },
                 options: {
                     ...this.getChartOptions('Community Impact'),
-                    cutout: '60%'
+                    cutout: '55%'
                 }
             }
         ];
