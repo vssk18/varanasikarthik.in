@@ -744,3 +744,78 @@
         justify-content: center;
     }
 }
+/* ============================================
+   WORK CARD ICON LINKS - Add this to css/work.css
+   ============================================ */
+
+/* Container for icon links */
+.work-card-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+/* Base styles for icon link buttons */
+.work-card-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(251, 176, 36, 0.1);
+    border: 1px solid rgba(251, 176, 36, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.work-card-icon-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Default hover (GitHub - gold) */
+.work-card-icon-link:hover {
+    background: rgba(251, 176, 36, 0.2);
+    border-color: rgba(251, 176, 36, 0.5);
+    color: #FBB024;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 15px rgba(251, 176, 36, 0.3);
+}
+
+/* TechRxiv variant (purple) */
+.work-card-icon-link.techrxiv {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.2);
+}
+
+.work-card-icon-link.techrxiv:hover {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.5);
+    color: #A855F7;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+/* Live site variant (green) */
+.work-card-icon-link.live {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.work-card-icon-link.live:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.5);
+    color: #10B981;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Update footer to accommodate links */
+.work-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
