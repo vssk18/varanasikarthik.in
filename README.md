@@ -92,7 +92,7 @@ open index.html
 ### Projects (5 Projects)
 - **Personal Portfolio** - This site ([Live](https://varanasikarthik.in))
 - **Project SAHAYAM** - Bilingual cybersecurity education (320+ reached)
-- **University Recommendation System** - ML-powered matching (500+ universities)
+- **University Recommendation System** - ML-powered matching (470+ universities)
 - **Energy Efficient IoT Lighting** - Smart automation (40% energy savings)
 - **Strategic Wealth Management** - Portfolio tracking (Java/MySQL)
 
